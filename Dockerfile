@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM maven:3.8.5-openjdk-8-slim AS build
+FROM maven:3.9.6-eclipse-temurin-17  AS build
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -17,7 +17,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests
 
 # Stage 2: Run the application
-FROM openjdk:8-alpine
+FROM maven:3.9.6-eclipse-temurin-17 
 
 # Set environment variables using the recommended format
 ENV PROJECT_HOME=/opt/app
