@@ -25,7 +25,7 @@ spec:
   capacity:
     storage: 1Gi
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   hostPath:
     path: "/tmp/mongodata"
 ---
@@ -36,7 +36,7 @@ metadata:
 spec:
   storageClassName: manual
   accessModes:
-  - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
       storage: 100Mi
@@ -60,7 +60,7 @@ spec:
     spec:
       containers:
       - name: springappcontainer
-        image: geetha0307/mongospring2:latest
+        image: geetha0307/springapp:1.0.0
         ports:
         - containerPort: 8080
         env:
